@@ -441,5 +441,47 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
     console.log('🎉 App đang chạy ở chế độ standalone (đã cài đặt)');
     document.body.classList.add('app-mode');
 }
-Notification.requestPermission().then(perm => console.log(perm));
-new Notification("Test", { body: "Thông báo hoạt động tốt!" });
+
+// ========== NÚT BẬT THÔNG BÁO CHO ĐIỆN THOẠI ==========
+function setupNotificationButton() {
+    const btn = document.getElementById('enableNotificationsBtn');
+    if (!btn) return;
+    
+    // Kiểm tra trạng thái hiện tại
+    if (Notification.permission === 'granted') {
+        btn.style.display = 'none'; // Đã bật rồi thì ẩn nút
+        return;
+    }
+    
+    // Hiển thị nút và xử lý khi bấm
+    btn.style.display = 'inline-block';
+    btn.addEventListener('click', async () => {
+        console.log('📢 Người dùng bấm nút bật thông báo');
+        
+        // Yêu cầu quyền
+        const permission = await Notification.requestPermission();
+        
+        if (permission === 'granted') {
+            console.log('✅ Đã được cấp quyền thông báo');
+            btn.style.display = 'none';
+            
+            // Gửi thông báo chào mừng
+            new Notification('🎉 Đã bật thông báo thành công!', {
+                body: 'App sẽ nhắc bạn đúng giờ nhé! 💖',
+                icon: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="%23ffd9e8"/%3E%3Ctext x="50" y="67" font-size="50" text-anchor="middle" fill="%23e85d8f"%3E💖%3C/text%3E%3C/svg%3E'
+            });
+            
+            showFloatyMessage('🔔 Thông báo đã được bật! Cảm ơn bạn 💖');
+        } else {
+            console.log('❌ Người dùng từ chối');
+            showFloatyMessage('⚠️ Bạn chưa bật thông báo, app sẽ không nhắc được đúng giờ!');
+        }
+    });
+}
+
+// Gọi hàm này khi trang load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNotificationButton);
+} else {
+    setupNotificationButton();
+}
