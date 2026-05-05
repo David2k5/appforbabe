@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>🌸 Chăm sóc bé cưng - Nhắc nhở yêu thương</title>
+    <!-- Link tới file CSS bên ngoài -->
+    <link rel="stylesheet" href="style.css">
+        <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffd9e8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nhắc Yêu">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+</head>
+
+<body>
+
+    <div class="love-card">
+        <div class="header">
+            <h1>✨ Nhắc bé iu ✨</h1>
+            <p>🥺 làm ơn hãy chăm sóc bản thân vì anh/em thương lắm</p>
+        </div>
+
+        <div class="live-clock">
+            <div class="time-box" id="currentTime">--:--:--</div>
+            <div class="date-box" id="currentDate">...</div>
+            <div class="status-message" id="dynamicMsg">💖 Đang theo dõi giờ giấc của bạn...</div>
+        </div>
+
+        <div class="reminders" id="remindersList">
+            <!-- Các task sẽ được js tạo ra -->
+        </div>
+
+        <div class="action-buttons">
+            <button class="reset-btn" id="resetAllBtn">🔄 Làm mới ngày mới</button>
+            <button class="reset-btn" id="resetAllTasksBtn">✔️ Tick lại tất cả</button>
+        </div>
+        <footer>
+            🌙 "Nhớ ăn ngủ đủ giấc, tắm rửa sạch sẽ, uống nhiều nước nhé. a yêu e rất nhiều!"
+        </footer>
+    </div>
+
+    <!-- Link tới file JavaScript bên ngoài -->
+    <script src="script.js"></script>
+</body>
+
+</html>

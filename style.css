@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, #ffe6f0 0%, #ffd9e8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+    padding: 20px;
+}
+
+/* container chính */
+.love-card {
+    max-width: 550px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(2px);
+    border-radius: 64px 48px 64px 48px;
+    box-shadow: 0 25px 45px rgba(255, 80, 120, 0.25), 0 5px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 28px 24px 40px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,240,0.8);
+}
+
+/* header dễ thương */
+.header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e85d8f, #b3416c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.header p {
+    color: #d45a7a;
+    font-weight: 500;
+    margin-top: 8px;
+    font-size: 1rem;
+    background: #fff0f3;
+    display: inline-block;
+    padding: 4px 18px;
+    border-radius: 40px;
+}
+
+/* đồng hồ hiện tại + lời nhắn */
+.live-clock {
+    background: #ffffffcc;
+    border-radius: 56px;
+    padding: 12px 16px;
+    margin-bottom: 32px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+}
+.time-box {
+    font-size: 2.4rem;
+    font-weight: 700;
+    font-family: monospace;
+    letter-spacing: 2px;
+    color: #a13e5e;
+}
+.date-box {
+    font-size: 0.9rem;
+    color: #e284a2;
+    font-weight: 500;
+}
+.status-message {
+    margin-top: 12px;
+    background: #ffecf0;
+    border-radius: 40px;
+    padding: 8px 12px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #ba2d62;
+    transition: 0.2s;
+}
+
+/* danh sách các việc cần nhắc */
+.reminders {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 36px;
+}
+.reminder-item {
+    background: white;
+    border-radius: 44px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 18px rgba(233, 116, 148, 0.15);
+    transition: all 0.2s;
+    border-left: 8px solid;
+}
+/* màu sắc theo từng task */
+.reminder-item.eat { border-left-color: #f9a26c; }
+.reminder-item.drink { border-left-color: #6ec8e0; }
+.reminder-item.bath { border-left-color: #aa96da; }
+.reminder-item.sleep { border-left-color: #c5a3ff; }
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.task-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.task-name span:first-child {
+    font-size: 1.7rem;
+}
+.task-time {
+    font-size: 0.8rem;
+    color: #6b6b6b;
+    background: #f7f7f7;
+    padding: 2px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+}
+.status-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 30px;
+    background: #fff0f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.btn-check {
+    background: #ffdce5;
+    border: none;
+    font-size: 1.6rem;
+    padding: 6px 16px;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 600;
+    color: #bd4f72;
+}
+.btn-check:active {
+    transform: scale(0.96);
+    background: #ffb7cb;
+}
+.completed {
+    opacity: 0.75;
+    background: #f4f4f4;
+}
+.completed .task-name {
+    text-decoration: line-through;
+    color: #a0a0a0;
+}
+
+/* nút reset dễ thương */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
+}
+.reset-btn {
+    background: #ffe3e9;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b3446a;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.reset-btn:active {
+    background: #fcc8d6;
+    transform: scale(0.97);
+}
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.75rem;
+    color: #f0a1ba;
+}
+@media (max-width: 480px) {
+    .love-card { padding: 20px 18px 30px; }
+    .task-name { font-size: 1.2rem; }
+    .btn-check { font-size: 1.3rem; padding: 4px 14px; }
+}
