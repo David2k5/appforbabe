@@ -7,17 +7,22 @@
     <title>🌸 Chăm sóc bé cưng - Nhắc nhở yêu thương</title>
     <!-- Link tới file CSS bên ngoài -->
     <link rel="stylesheet" href="style.css">
-        <!-- PWA Meta Tags -->
+    <!-- PWA Meta Tags -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffd9e8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Nhắc Yêu">
     <link rel="apple-touch-icon" href="icon-192x192.png">
 </head>
 
 <body>
-
+    <!-- Nút cài đặt app (chỉ hiện trên Android) -->
+    <div id="installBanner" style="display: none; text-align: center; margin-top: 15px;">
+        <button id="installBtn" class="reset-btn" style="background: #e85d8f; color: white;">
+            📱 Cài app để nhận thông báo
+        </button>
+    </div>
     <div class="love-card">
         <div class="header">
             <h1>✨ Nhắc bé iu ✨</h1>
